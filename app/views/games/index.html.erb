@@ -1,6 +1,8 @@
 <h1>Let's play LCR</h1>
 
-<%= form_with model: @person do |person_form| %>
-  <%= person_form.text_field :name, placeholder: "Name" %>
+<%= form_with scope: :player, url: games_path do |playerform| %>
+  <%# <%= playerform.label "Your Name" %>
+  <%# <%= playerform.label :player, :name, label: "Your Name" %>
+  <%= playerform.text_field :name, placeholder: "Name" %>
   <%= submit_tag("Let's Play") %>
 <% end %>

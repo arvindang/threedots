@@ -1,0 +1,8 @@
+# TODO
+
+* ~~Update Game route from resources to manually list out~~
+* List players on game show page
+* Remove _turn_ from *player*, replace it with _order_, and add _turn_ to *game*
+* Add form helper on game page, add players
+* Add dice to game page, with array of dice sides
+* Unique game URL on click of "New Game" from games#index
