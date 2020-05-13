@@ -29,7 +29,7 @@ class GamesController < ActionController::Base
     # ???
     @game = Game.find_by(gameurl: params[:id])
     @host = Player.find_by(game_id: @game.id)
-    puts @host.name
+    # puts @host.name
 
     render :show
   end

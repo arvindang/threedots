@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'games', to: 'games#create'
   delete 'games/:id', to: 'games#destroy'
 
+  post '/players', to: 'players#create'
 
   # get '/patients/:id', to: 'patients#show'
   # get 'books/:id' to: 'books/show'
