@@ -1,23 +1,15 @@
 <h1>Welcome to the Matrix</h1>
 
-<!-- Form submission
-Create new player
-Display player to show page -->
-
-<form data-controller="player" class="form form-default" action="/players" method="post">
+<form class="form form-default" action="/players" method="post">
   <label for="player_name">Your name</label>
-  <input data-target="player.name" type="text" name="player_name" placeholder="Priyanka Chopra">
+  <input type="text" name="player_name" placeholder="Priyanka Chopra">
   <input type="hidden" name="game_id" value="<%= @game.id %>">
-  <button data-action="click->player#log">Add Player</button>
+  <button>Add Player</button>
 </form>
 
-
 <ol>
-  <li><%= @host.name %> (host)</li>
-  <li></li>
+    <li><strong><%= @host.name %> (host)</strong></li>
+  <% @current_player.each do |player| %>
+    <li><%= player.name %> (<%= player.game_id %>)</li>
+  <% end %>
 </ol>
-
-<div data-controller="hello">
-    <p>test</p>
-   <h1 data-target="hello.output"></h1>
-</div>
