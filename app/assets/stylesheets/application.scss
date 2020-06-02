@@ -1,0 +1,98 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ * {
+   box-sizing: border-box;
+ }
+
+ body {
+   background-color: #eee;
+   font-family: sans-serif;
+ }
+
+ .container {
+   max-width: 480px;
+   margin: 0 auto;
+ }
+
+ .roll {
+   list-style: none;
+   display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -moz-flex;
+   display: -webkit-flex;
+   display: flex;
+   // -webkit-flex-wrap: nowrap;
+   // flex-wrap: nowrap;
+ }
+
+ .dice {
+   //  -webkit-flex-wrap: nowrap;
+   // flex-wrap: nowrap;
+   list-style: none;
+   text-align: center;
+   font-weight: 900;
+   font-size: 2rem;
+   background: #fff;
+   width: 120px;
+   height: 120px;
+   border-radius: 20px;
+   line-height: 120px;
+   margin: 10px;
+ }
+
+ .btn {
+   font-weight: 900;
+   font-size: 1.5em;
+   font-weight: 900;
+   font-size: 1.5em;
+   border: none;
+   width: 100%;
+   padding: 20px;
+   border-radius: 80px;
+   margin: 20px 0;
+ }
+
+ .roll-btn {
+   background: #4A93FF;
+   color: #fff;
+   display: block;
+   background: #4A93FF;
+   color: #fff;
+
+   &:hover {
+     background: darken(#4A93FF, 20%);
+   }
+
+   &:active {
+     background: gold;
+   }
+ }
+
+ .input {
+   border: 2px #fff solid;
+   font-weight: 900;
+   font-size: 1.5em;
+   width: 100%;
+   padding: 20px;
+   border-radius: 80px;
+
+   &:focus {
+     border: 2px #4A93FF solid;
+     color: #000;
+   }
+ }

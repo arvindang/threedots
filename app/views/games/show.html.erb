@@ -1,15 +1,49 @@
-<h1>Welcome to the Matrix</h1>
+<section class="container">
+  <h1>Welcome to the Matrix</h1>
+</section>
 
-<form class="form form-default" action="/players" method="post">
-  <label for="player_name">Your name</label>
-  <input type="text" name="player_name" placeholder="Priyanka Chopra">
-  <input type="hidden" name="game_id" value="<%= @game.id %>">
-  <button>Add Player</button>
-</form>
+<section class="container">
+  <form class="form form-default" action="/players" method="post">
+    <label for="player_name">Your name</label>
+    <input type="text" class="input" name="player_name" placeholder="Priyanka Chopra">
+    <input type="hidden" name="game_id" value="<%= @game.id %>">
+    <button class="btn roll-btn">Add Player</button>
+  </form>
 
-<ol>
-    <li><strong><%= @host.name %> (host)</strong></li>
-  <% @current_player.each do |player| %>
-    <li><%= player.name %> (<%= player.game_id %>)</li>
-  <% end %>
-</ol>
+  <ol>
+    <!-- <li><strong><%#= @host.name %> (host)</strong></li> -->
+    <% @current_players.each do |player| %>
+    <li>
+      <span class="show"> > </span>
+
+      <%= player.name %>
+      (Dollars: <%= player.currency %>)
+      (Turn: <%= player.turn %>)
+      (Game: <%= player.game_id %>)
+    </li>
+    <% end %>
+  </ol>
+</section>
+
+<section class="container">
+  <ul class="roll">
+    <li class="dice">
+      <span class="side">L</span>
+    </li>
+    <li class="dice">
+      <span class="side">R</span>
+    </li>
+    <li class="dice">
+      <span class="side">💩</span>
+    </li>
+  </ul>
+
+  <button class="btn roll-btn" id="rollDice">Roll</button>
+</section>
+
+<section class="container">
+  <form class="" action="/players" method="post">
+    <button class="btn roll-btn">Next Turn</button>
+    <input type="hidden" name="turn_id" value="<#%=  %>">
+  </form>
+</section>

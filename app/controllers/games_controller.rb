@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   def create
     gameurl = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
     game = Game.create(gameurl: gameurl)
-    host = Player.create(name: params["player"]["name"], turn: 0, game: game)
+    host = Player.create(name: params["player"]["name"], turn: 0, currency: 3, game: game)
 
     redirect_to :action => "show", :id => game.gameurl
   end
@@ -17,7 +17,10 @@ class GamesController < ApplicationController
 
     # Subtract first from @players = host
     @players = Player.all
-    @current_player = @players.where(game_id: @game.id)
+    @current_players = @players.where(game_id: @game.id)
+
+    # On click of button enumerate to next player
+    @current_player = @players.where(turn: 0)
 
     render :show
   end

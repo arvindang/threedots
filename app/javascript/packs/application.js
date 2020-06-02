@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('jquery')
 
 import "controllers"
 
@@ -23,3 +24,20 @@ application.load(definitionsFromContext(context))
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+$(document).ready(function(event){
+
+  $('#rollDice').click(function(event) {
+    var faces = $(".side");
+
+    $(".side").each(function( index ) {
+      var items = ["L", "R", "C", "Dot", "Dot", "Dot"];
+      let show = items[Math.floor(Math.random() * items.length)];
+      faces.eq(index).html(show);
+
+      // console.log(show);
+    });
+
+  });
+
+});

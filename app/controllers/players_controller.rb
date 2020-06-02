@@ -3,7 +3,7 @@ class PlayersController < ApplicationController
   layout false
 
   def create
-    new_player = Player.create(name: params["player_name"], game_id: params["game_id"])
+    new_player = Player.create(name: params["player_name"], game_id: params["game_id"], currency: 3)
 
     puts new_player.name
   end
