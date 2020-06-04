@@ -14,13 +14,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find_by(gameurl: params[:id])
     @host = Player.find_by(game_id: @game.id)
-
-    # Subtract first from @players = host
-    @players = Player.all
-    @current_players = @players.where(game_id: @game.id)
-
-    # On click of button enumerate to next player
-    @current_player = @players.where(turn: 0)
+    @current_players = Player.where(game_id: @game.id)
 
     render :show
   end

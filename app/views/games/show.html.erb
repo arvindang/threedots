@@ -5,7 +5,7 @@
 <section class="container">
   <form class="form form-default" action="/players" method="post">
     <label for="player_name">Your name</label>
-    <input type="text" class="input" name="player_name" placeholder="Priyanka Chopra">
+    <input type="text" class="input" name="player_name" placeholder="Priyanka Chopra" required>
     <input type="hidden" name="game_id" value="<%= @game.id %>">
     <button class="btn roll-btn">Add Player</button>
   </form>
@@ -14,7 +14,7 @@
     <!-- <li><strong><%#= @host.name %> (host)</strong></li> -->
     <% @current_players.each do |player| %>
     <li>
-      <span class="show"> > </span>
+      <!-- <span class="show"> > </span> -->
 
       <%= player.name %>
       (Dollars: <%= player.currency %>)
@@ -43,7 +43,7 @@
 
 <section class="container">
   <form class="" action="/players" method="post">
-    <button class="btn roll-btn">Next Turn</button>
+    <button class="btn roll-btn">Pass your dollars and move on</button>
     <input type="hidden" name="turn_id" value="<#%=  %>">
   </form>
 </section>
