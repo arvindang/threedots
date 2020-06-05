@@ -34,10 +34,32 @@ $(document).ready(function(event){
       var items = ["L", "R", "C", "Dot", "Dot", "Dot"];
       let show = items[Math.floor(Math.random() * items.length)];
       faces.eq(index).html(show);
-
-      // console.log(show);
     });
-
   });
 
+  $('#addPlayerBtn').click(function(event) {
+
+    // Disable Add Player button
+    // $(this).prop("disabled", true);
+    this.setAttribute("disabled", true);
+
+    // Grab submission from input field
+    var playerNameSubmit = $("#playerNameSubmit").val();
+    var gameId = $("#gameId").val();
+
+    // Submit player name to database
+    $.ajax({
+      url: "/players",
+      method: "post",
+      // headers: {}
+      data: {
+        name: playerNameSubmit,
+        game_id: gameId
+      }
+    }).done(console.log);
+
+    // Status: 202 created ; 400 already extis ; something error
+    // Remove form on submit
+    // Part 2: render Ordered List of players without refresh
+  });
 });

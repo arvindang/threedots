@@ -5,9 +5,9 @@
 <section class="container">
   <form class="form form-default" action="/players" method="post">
     <label for="player_name">Your name</label>
-    <input type="text" class="input" name="player_name" placeholder="Priyanka Chopra" required>
-    <input type="hidden" name="game_id" value="<%= @game.id %>">
-    <button class="btn roll-btn">Add Player</button>
+    <input type="text" class="input" id="playerNameSubmit" name="player_name" placeholder="Priyanka Chopra" required>
+    <input type="hidden" name="game_id" id="gameId" value="<%= @game.id %>">
+    <button type="submit" id="addPlayerBtn" class="btn roll-btn">Add Player</button>
   </form>
 
   <ol>
