@@ -1,49 +1,69 @@
-<section class="container">
-  <h1>Welcome to the Matrix</h1>
-</section>
+<h1>Welcome to LRC</h1>
 
-<section class="container">
-  <form class="form form-default" action="/players" method="post">
-    <label for="player_name">Your name</label>
-    <input type="text" class="input" id="playerNameSubmit" name="player_name" placeholder="Priyanka Chopra" required>
-    <input type="hidden" name="game_id" id="gameId" value="<%= @game.id %>">
-    <button type="submit" id="addPlayerBtn" class="btn roll-btn">Add Player</button>
-  </form>
+<!-- <form action="/players" method="post">
+  <label>Your name</label>
+  <input type="text" name="player_name" placeholder="Priyanka Chopra" required>
+  <input type="hidden" name="game_id" value="<#%= @game.id %>">
+  <button type="submit">Add Player</button>
+</form> -->
 
-  <ol>
-    <!-- <li><strong><%#= @host.name %> (host)</strong></li> -->
-    <% @current_players.each do |player| %>
-    <li>
-      <!-- <span class="show"> > </span> -->
 
-      <%= player.name %>
-      (Dollars: <%= player.currency %>)
-      (Turn: <%= player.turn %>)
-      (Game: <%= player.game_id %>)
-    </li>
-    <% end %>
-  </ol>
-</section>
+<h2>Game Information</h2>
+<%= link_to "Next turn", games_path(game_id: @game.id), class: "next_player", remote: true %>
 
-<section class="container">
-  <ul class="roll">
-    <li class="dice">
-      <span class="side">L</span>
-    </li>
-    <li class="dice">
-      <span class="side">R</span>
-    </li>
-    <li class="dice">
-      <span class="side">💩</span>
-    </li>
-  </ul>
+<ul>
+  <li>Game ID: <%= @game.id %></li>
+  <li>Round: </li>
+  <li>Pot Total: </li>
+  <li> Turn: <%#= @current_turn.name %> </li>
+</ul>
 
-  <button class="btn roll-btn" id="rollDice">Roll</button>
-</section>
+<br><br>
 
-<section class="container">
-  <form class="" action="/players" method="post">
-    <button class="btn roll-btn">Pass your dollars and move on</button>
-    <input type="hidden" name="turn_id" value="<#%=  %>">
-  </form>
-</section>
+<h2>Player Information</h2>
+<%= form_tag(players_path, :method => "post") do %>
+  <%= label_tag(:player_name, "Add player:") %>
+  <%= text_field_tag(:player_name, nil, placeholder: 'Priyanka Chopra') %>
+  <%= hidden_field_tag(:game_id, "#{@game.id}") %>
+  <%= submit_tag("Join the Game") %>
+<% end %>
+
+<ol>
+  <% @current_players.each do |player| %>
+  <li>
+    <strong><%= player.name %></strong> /
+    Order: <%= player.turn %> /
+    Dollars: <%= player.currency %> /
+    Last Roll:
+  </li>
+  <% end %>
+</ol>
+
+<br><br>
+
+<h2>Roll</h2>
+<%= link_to "Next Roll", games_path(game_id: @game.id), class: "next_roll", remote: true %>
+<ul>
+  <li>L</li>
+  <li>R</li>
+  <li>C</li>
+</ul>
+
+<!-- Keep record of:
+
+For Games:
+• Game session (id)
+• Center Pot total
+• Turn (player name?)
+• Round (integer)
+
+For Players:
+• Players (in game session)
+• Current Player (pre current player)
+• Player wallet / currency
+• Player dice count
+• Roll (per player, per turn)
+• Player Before (Name - post current player)
+• Player After (Name - post current player)
+• Player Before (update currency based on role)
+• Player After (update currency based on role) -->

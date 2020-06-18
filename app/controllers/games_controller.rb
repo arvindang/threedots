@@ -16,6 +16,25 @@ class GamesController < ApplicationController
     @host = Player.find_by(game_id: @game.id)
     @current_players = Player.where(game_id: @game.id)
 
+    # On click of button, increment to next player
+    # @player_turn = Game.current_player
+
+    def your_turn
+      @current_player = @host.name
+      
+
+    end
+
+    # i = 0
+    # while i < @current_players.length
+    #     @current_turn = @current_players[i]
+    #     i += 1
+    # end
+
+    # @current_turn = @current_players[i]
+    # @next_turn = @current_turn[i + 1]
+    # player.turn = Player.where(game_id: player.game_id).count
+
     render :show
   end
 end

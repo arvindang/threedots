@@ -2,9 +2,8 @@ class PlayersController < ApplicationController
   skip_before_action :verify_authenticity_token
   layout false
 
-  # TODO is there an API only
   def create
-    player_name = params["name"]
+    player_name = params["player_name"]
     game_id = params["game_id"]
     puts player_name
 
